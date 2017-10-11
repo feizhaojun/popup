@@ -25,22 +25,14 @@ function popup(opt){
     if(opt.confirm){
         $("#layer-popup").append("<a href='javascript:;' class='btn confirm'>" + (opt.confirm.text || '确认') + "</a>");
         $("#layer-popup").on('click','.confirm',function(){
-            if(opt.confirm.callcack){
-                opt.confirm.callcack();
-            }else if(opt.confirm instanceof Function){
-                opt.confirm.callcack
-            }
+            opt.confirm.callback ? opt.confirm.callback() : opt.confirm();
             remove();
         });
     }
     if(opt.concel){
         $(".confirm").after("<a href='javascript:;' class='btn concel'>" + (opt.concel.text || '取消') + "</a>");
         $("#layer-popup").on('click','.concel',function(){
-            if(opt.concel.callcack){
-                opt.concel.callcack();
-            }else if(opt.concel instanceof Function){
-                opt.concel.callcack
-            }
+            opt.concel.callback ? opt.concel.callback() : opt.concel();
             remove();
         });
     }
