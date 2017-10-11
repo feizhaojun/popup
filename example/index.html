@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DEMO</title>
+    <link rel="stylesheet" type="text/css" href="../src/popup.css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/agate.min.css" rel="stylesheet">
+</head>
+<body>
+<a href="javascript:;" id="popup-test">Click here!</a>
+
+<h2>如何使用？</h2>
+<pre><code class="javascript">
+popup({
+    title : '这是标题',
+    content : '这是内容',
+    layer_close : false,
+    confirm : function(){
+        console.log('click confirm');
+    },
+    concel : function(){
+        console.log('click concel');
+    }
+});
+
+</code></pre>
+<p>如果你需要修改确认按钮和取消按钮的文字内容：</p>
+<pre><code class="javascript">
+popup({
+    title : '这是标题',
+    content : '这是内容',
+    layer_close : false,
+    confirm : {
+        text:"保存"   // 默认值是“确认”,
+        callback:function(){
+            console.log('click confirm');
+        },
+    }
+    concel : {
+        text:"否"   // 默认值是“取消”,
+        callback:function(){
+            console.log('click concel');
+        },
+    }
+});
+
+</code></pre>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="../src/popup.js"></script>
+<script>
+    $('a#popup-test').on('click',function(){
+        popup({
+            title : '这是标题',
+            content : '这是内容',
+            layer_close : false,
+            confirm : function(){
+                console.log('click confirm');
+            },
+            concel : function(){
+                console.log('click concel');
+            }
+        });
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
